@@ -10,12 +10,15 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args) {
-        WebDriver driver = GetChrome(true);
+        WebDriver driver = GetChrome(false);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        String url = "https://www.google.com/";
+        String url = "https://staging.engineer.ai/welcome";
         Home home = new Home(driver);
         home.NavigateToPage(url);
+        home.TakeAndSkipTour();
+        home.selectUSD();
+        home.clickSignIn();
     }
 
     private static WebDriver GetChrome(boolean headless) {
