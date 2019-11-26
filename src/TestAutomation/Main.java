@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.Home;
+import pages.Register;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -19,6 +21,17 @@ public class Main {
         home.TakeAndSkipTour();
         home.selectUSD();
         home.clickSignIn();
+        home.clickRegister();
+
+        Register register = new Register(driver);
+        Random randomGenerator = new Random();
+        int integer = randomGenerator.nextInt(9999);
+
+        String email = "QATest" + integer + "@test.com";
+        String username = "testUser" + integer;
+        String password = "testPassword" + integer;
+        register.SignUpAndRegister(email, username, "964593647", password);
+
     }
 
     private static WebDriver GetChrome(boolean headless) {

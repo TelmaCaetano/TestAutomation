@@ -12,10 +12,10 @@ public class Home {
 
     By tourButtonLocator = By.xpath("//button[text()=\"TAKE A TOUR \"]");
     By skipTourButtonLocator = By.xpath(".//app-welcome//div[@class='letsskip']/button");
-    By closeDisclaimerLocator = By.xpath(".//*[@class='icon-cancel']");
+    By closeDisclaimerLocator = By.xpath("//*[@class='trademark-strip']//*[@class='icon-cancel']");
     By usdLocator = By.className("sel_state");
-    By usdCurrencyLocator = By.xpath("//span[text()=\"US Dollars\"]");
-    By signInLocator = By.xpath("//*[@class = 'loginPanel']//button");
+    By usdCurrencyLocator = By.xpath("//*[@class='currencyName'][text()='US Dollars']");
+    By signInLocator = By.xpath("//*[@class='loginPanel']//button");
     By registerLocator =By.xpath("//strong[contains(text(),'Register')]");
 
 
@@ -39,17 +39,17 @@ public class Home {
 
     private void clickTouButton() {
         WebElement tourButton = driver.findElement(tourButtonLocator);
-        wait.until((ExpectedConditions.elementToBeClickable(tourButton)));
+        wait.until((ExpectedConditions.elementToBeClickable(tourButton))).click();
     }
 
     private void clickSkipTourButton() {
         WebElement tourButton = driver.findElement(skipTourButtonLocator);
-        wait.until((ExpectedConditions.elementToBeClickable(tourButton)));
+        wait.until((ExpectedConditions.elementToBeClickable(tourButton))).click();
     }
 
     private void clickCloseDisclaimer() {
         WebElement tourButton = driver.findElement(closeDisclaimerLocator);
-        wait.until((ExpectedConditions.elementToBeClickable(tourButton)));
+        wait.until((ExpectedConditions.elementToBeClickable(tourButton))).click();
     }
     public void selectUSD() {
         WebElement usd = driver.findElement(usdLocator);
@@ -59,6 +59,11 @@ public class Home {
     public void clickSignIn () {
         WebElement register = driver.findElement(closeDisclaimerLocator);
         wait.until((ExpectedConditions.elementToBeClickable(register))).click();
+    }
+
+    public void  clickRegister() {
+        WebElement register = driver.findElement(registerLocator);
+        wait.until(ExpectedConditions.elementToBeClickable((register))).click();
     }
 
 
