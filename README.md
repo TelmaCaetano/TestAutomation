@@ -6,9 +6,11 @@
 public class TestAutomation {
     //Calls all test functions in the test project
       main(String[] args);
+
     //Generates a random string to use in test data
     chooseRandomValue(int count);
-    //Gets a chrome browser by default (headless mode ca ne turned on or off)
+
+    //Gets a chrome browser by default (headless mode can be turned on or off)
     getChrome(boolean headless);
 }
 ```
